@@ -19,7 +19,7 @@
       <p mat-line>
         <span>{{book.author}}</span>
       </p>
-      <p mat-line> {{book.rating | ratingCategory}} </p>
+      <my-rating [rating]="book.rating" [book]="book" (ratingClicked)="onRatingUpdate($event)"> </my-rating>
       <p mat-line>
         <span [class]="book.isCheckedOut ? 'chip chip-danger' : 'chip chip-success'"> {{book.isCheckedOut ? 'Checked-Out' : 'Available'}} </span>
       </p>
