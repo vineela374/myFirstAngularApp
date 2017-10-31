@@ -6,7 +6,7 @@
     <mat-card-subtitle>
       <strong>Operating Hours</strong>
     </mat-card-subtitle>
-    <mat-card-content>{{openingTime}} - {{closingTime}} (M-F)</mat-card-content>
+    <mat-card-content>{{openingTime | date: 'shortTime'}} - {{closingTime | date: 'shortTime'}} (M-F)</mat-card-content>
   </mat-card>
 </div>
 <div>
@@ -19,7 +19,7 @@
       <p mat-line>
         <span>{{book.author}}</span>
       </p>
-      <p mat-line> {{book.rating}} </p>
+      <p mat-line> {{book.rating | ratingCategory}} </p>
       <p mat-line>
         <span [class]="book.isCheckedOut ? 'chip chip-danger' : 'chip chip-success'"> {{book.isCheckedOut ? 'Checked-Out' : 'Available'}} </span>
       </p>
