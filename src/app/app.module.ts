@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { CollectionComponent } from './collection/collection.component';
 import { RatingCategoryPipe } from './pipes/rating-category.pipe';
 import { RatingComponent } from './rating/rating.component';
+import { HttpModule } from '@angular/http'; 
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { RatingComponent } from './rating/rating.component';
     MatInputModule, 
     MatToolbarModule,
     BrowserAnimationsModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]

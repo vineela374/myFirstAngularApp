@@ -9,7 +9,11 @@ import { DataService } from '../services/data.service';
   styleUrls: ["./collection.component.css"]
 })
 export class CollectionComponent implements OnInit {
-  ngOnInit() {}
+
+  ngOnInit() {
+   this.getBooks();
+  }
+  books: Array<Ibook>;
 
   pageTitle: string = "North Eastern Library";
   showOperatingHours: boolean;
@@ -31,4 +35,10 @@ export class CollectionComponent implements OnInit {
   onRatingUpdate(book: Ibook): void {
     this.updateMessage(book.title, " Rating has been updated");
   }
+
+  getBooks(): void { 
+    this._dataService.getBooks().subscribe( 
+      books => this.books = books,
+       error => this.updateMessage(<any>error, 'ERROR'));
+       }
 }
