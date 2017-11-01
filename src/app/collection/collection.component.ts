@@ -4,7 +4,6 @@ import { MatSnackBar } from "@angular/material";
 import { DataService } from '../services/data.service';
 
 @Component({
-  selector: "my-collection",
   templateUrl: "./collection.component.html",
   styleUrls: ["./collection.component.css"]
 })

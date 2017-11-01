@@ -9,7 +9,9 @@ import { FormsModule } from '@angular/forms';
 import { CollectionComponent } from './collection/collection.component';
 import { RatingCategoryPipe } from './pipes/rating-category.pipe';
 import { RatingComponent } from './rating/rating.component';
-import { HttpModule } from '@angular/http'; 
+import { HttpModule } from '@angular/http';
+import { TabsComponent } from './tabs/tabs.component'; 
+import { AppRoutingModule } from './app-routing/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { HttpModule } from '@angular/http';
     AboutComponent,
     CollectionComponent,
     RatingCategoryPipe,
-    RatingComponent
+    RatingComponent,
+    TabsComponent, 
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,8 @@ import { HttpModule } from '@angular/http';
     MatInputModule, 
     MatToolbarModule,
     BrowserAnimationsModule,
-    HttpModule
+    HttpModule, 
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
