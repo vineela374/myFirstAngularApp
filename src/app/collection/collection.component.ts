@@ -9,11 +9,13 @@ import { DataService } from '../services/data.service';
   styleUrls: ["./collection.component.css"]
 })
 export class CollectionComponent implements OnInit {
+ 
+  books: Array<Ibook>;
 
   ngOnInit() {
    this.getBooks();
   }
-  books: Array<Ibook>;
+
 
   pageTitle: string = "North Eastern Library";
   showOperatingHours: boolean;

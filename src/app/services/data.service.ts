@@ -6,9 +6,9 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 @Injectable()
 export class DataService {
-  _http: any;
+  
   _booksUrl:string = 'http://waelsbookservice.azurewebsites.net/books';
-  constructor(private_http: Http) {}
+  constructor(private _http: Http) {}
   private handleError(error: any) { 
     let errMsg = (error.message) ? error.message : error.status ? `${error.status} - ${error.statusText}` : 'Server error'; 
     console.error(errMsg); 
