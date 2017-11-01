@@ -5,6 +5,7 @@ import { Observable } from "rxjs/Observable";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/catch";
 
+
 @Injectable()
 export class DataService {
   _booksUrl: string = "http://waelsbookservice.azurewebsites.net/books";
@@ -57,7 +58,7 @@ export class DataService {
 
   updateBook(book: Ibook): Observable<void> {
     return this._http
-      .put(this._booksUrl, book)
+      .put(this._booksUrl + "/updateBook", book)
       .map((response: Response) => {
         return;
       })
@@ -66,7 +67,7 @@ export class DataService {
 
   deleteBook(id: number): Observable<void> {
     return this._http
-      .delete(`${this._booksUrl}/${id}`)
+      .delete(`${this._booksUrl + "/deleteBook"}/${id}`)
       .map((response: Response) => {
         return;
       })
@@ -79,6 +80,24 @@ export class DataService {
         let nextId: number = <number>response.json();
         return nextId;
       })
+      .catch(this.handleError);
+  }
+
+  canActivate(id): Observable<boolean> {
+    return this._http
+      .get(`${this._booksUrl + "/canactivate"}/${id}`)
+      .map((response: Response) => {
+        let canactivate: boolean = <boolean>response.json();
+        return canactivate;
+      })
+      .catch(this.handleError);
+  }
+  addBook(book: Ibook): Observable<void> {
+    return this._http
+      .post(this._booksUrl + "/addbook", book)
+     // .map((response: Response) => {
+     //   return;
+     // })
       .catch(this.handleError);
   }
 }
