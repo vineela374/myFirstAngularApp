@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Ibook } from "../ibook";
-import { Http } from "@angular/http";
+import { Http,Response } from "@angular/http";
 import { Observable } from "rxjs/Observable";
 import 'rxjs/add/operator/map'; 
 import 'rxjs/add/operator/catch';
@@ -14,6 +14,8 @@ export class DataService {
     console.error(errMsg); 
     return Observable.throw(errMsg);
    } 
+   
+   
    getBooks(): Observable<Ibook[]> { 
      return this._http.get(this._booksUrl+"/GetBooks") 
      .map((response: Response) => { 
@@ -21,6 +23,7 @@ export class DataService {
        return data; }) 
        .catch(this.handleError); 
       }
+      
   }
 
 
